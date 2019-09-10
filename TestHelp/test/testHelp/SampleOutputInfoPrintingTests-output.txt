@@ -1,0 +1,446 @@
+==========================================================================================
+
+TEST CLASS: testHelp.SampleOutputInfoPrintingTests
+
+==========================================================================================
+
+TEST (1): test_printTestName (SampleOutputInfoPrintingTests.java:32)
+
+==========================================================================================
+
+TEST (2): test_getOutput_ClassName_threeArgs_exception_truncation_after_target_caller (SampleOutputInfoPrintingTests.java:180)
+
+DESCRIPTION: testHelp.ConsoleTesterTests$MainClass1::Main
+
+INPUT: [empty]
+
+OUTPUT [BEFORE EXCEPTION]: 3 args
+
+OUTPUT [EXCEPTION]: java.lang.IllegalArgumentException: Too many args
+
+VALUE: [not set]
+
+ERROR_OUTPUT: (1) java.lang.IllegalArgumentException: Too many args
+	at testHelp.ConsoleTesterTests$MainClass1.main(ConsoleTesterTests.java:54)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at testHelp.ConsoleTester.lambda$0(ConsoleTester.java:511)
+	at testHelp.VFunctionsAndVUnboundMethods.lambda$3(VFunctionsAndVUnboundMethods.java:248)
+	at testHelp.ConsoleTester.getOutputFromVFunction(ConsoleTester.java:561)
+	at testHelp.ConsoleTester.getOutput(ConsoleTester.java:202)
+	at testHelp.SampleOutputInfoPrintingTests.test_getOutput_ClassName_threeArgs_exception_truncation_after_target_caller(SampleOutputInfoPrintingTests.java:180)
+	...
+
+ASSERTION INFO (SampleOutputInfoPrintingTests.java:182): SUCCESS
+
+==========================================================================================
+
+TEST (3): test_getOutput_ClassName_threeArgs_exception_truncation_before_target_caller (SampleOutputInfoPrintingTests.java:194)
+
+DESCRIPTION: testHelp.ConsoleTesterTests$MainClass1::Main
+
+INPUT: [empty]
+
+OUTPUT [BEFORE EXCEPTION]: 3 args
+
+OUTPUT [EXCEPTION]: java.lang.IllegalArgumentException: Too many args
+
+VALUE: [not set]
+
+ERROR_OUTPUT: (1) java.lang.IllegalArgumentException: Too many args
+	at testHelp.ConsoleTesterTests$MainClass1.main(ConsoleTesterTests.java:54)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	...
+	at testHelp.SampleOutputInfoPrintingTests.test_getOutput_ClassName_threeArgs_exception_truncation_before_target_caller(SampleOutputInfoPrintingTests.java:194)
+	...
+
+ASSERTION INFO (SampleOutputInfoPrintingTests.java:196): SUCCESS
+
+==========================================================================================
+
+TEST (4): test_printFailMessage_assertionFailure_string_pattern (SampleOutputInfoPrintingTests.java:333)
+
+ASSERTION FAILURE (SampleOutputInfoPrintingTests.java:334): Expected to find pattern 'food' but did not in string 'some foo for you'
+
+==========================================================================================
+
+TEST (5): test_printInfoIfNotAlreadyPrinted_getOutput_returnObject_Integer (SampleOutputInfoPrintingTests.java:102)
+
+DESCRIPTION: TestClassWithNormalizedMethods::returnArgument with Integer arg
+
+INPUT: [empty]
+
+OUTPUT: [empty]
+
+VALUE: Integer 42
+
+==========================================================================================
+
+TEST (6): test_getOutput_ClassName_threeArgs_exception_truncation_no_caller (SampleOutputInfoPrintingTests.java:215)
+
+DESCRIPTION: testHelp.ConsoleTesterTests$MainClass1::Main
+
+INPUT: [empty]
+
+OUTPUT [BEFORE EXCEPTION]: 3 args
+
+OUTPUT [EXCEPTION]: java.lang.IllegalArgumentException: Too many args
+
+VALUE: [not set]
+
+ERROR_OUTPUT: (1) java.lang.IllegalArgumentException: Too many args
+	at testHelp.ConsoleTesterTests$MainClass1.main(ConsoleTesterTests.java:54)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at testHelp.ConsoleTester.lambda$0(ConsoleTester.java:511)
+	at testHelp.VFunctionsAndVUnboundMethods.lambda$3(VFunctionsAndVUnboundMethods.java:248)
+	at testHelp.ConsoleTester.getOutputFromVFunction(ConsoleTester.java:561)
+	at testHelp.ConsoleTester.getOutput(ConsoleTester.java:202)
+	at testHelp.SampleOutputInfoPrintingTests.test_getOutput_ClassName_threeArgs_exception_truncation_no_caller(SampleOutputInfoPrintingTests.java:215)
+	...
+
+ASSERTION INFO (SampleOutputInfoPrintingTests.java:217): SUCCESS
+
+
+Printing exception from getOutput:
+
+(1) java.lang.IllegalArgumentException: Too many args
+	at testHelp.ConsoleTesterTests$MainClass1.main(ConsoleTesterTests.java:54)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at testHelp.ConsoleTester.lambda$0(ConsoleTester.java:511)
+	at testHelp.VFunctionsAndVUnboundMethods.lambda$3(VFunctionsAndVUnboundMethods.java:248)
+	at testHelp.ConsoleTester.getOutputFromVFunction(ConsoleTester.java:561)
+	at testHelp.ConsoleTester.getOutput(ConsoleTester.java:202)
+	at testHelp.SampleOutputInfoPrintingTests.test_getOutput_ClassName_threeArgs_exception_truncation_no_caller(SampleOutputInfoPrintingTests.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:436)
+	...
+
+
+==========================================================================================
+
+TEST (7): test_printFailMessage_assertionFailure_double (SampleOutputInfoPrintingTests.java:307)
+
+ASSERTION FAILURE (SampleOutputInfoPrintingTests.java:307): Expected 22/7 3.142857 to be within tolerance 0.000100 of pi 3.141593 but it was not
+
+==========================================================================================
+
+TEST (8): test_printInfoMessage_verify (SampleOutputInfoPrintingTests.java:248)
+
+ASSERTION INFO (SampleOutputInfoPrintingTests.java:248): Info message printed with verify.info
+
+==========================================================================================
+
+TEST (9): test_printInfoIfNotAlreadyPrinted_getOutput_interactive_sumNumbers_clean (SampleOutputInfoPrintingTests.java:140)
+
+DESCRIPTION: TestClassWithInteractiveMethods::sumNumbersFromInput - clean input
+
+INPUT: 1
+2
+3
+=
+
+OUTPUT: Enter numbers one per line or = to return sum
+1
+2
+3
+
+VALUE: Integer 6
+
+==========================================================================================
+
+TEST (10): test_printInfoIfNotAlreadyPrinted_getOutput_interactive_sumNumbers_dirty (SampleOutputInfoPrintingTests.java:149)
+
+DESCRIPTION: TestClassWithInteractiveMethods::sumNumbersFromInput - dirty input
+
+INPUT: 1
+2
+r
+3
+
+add
+=
+
+OUTPUT: Enter numbers one per line or = to return sum
+1
+2
+3
+
+VALUE: Integer 6
+
+ERROR_OUTPUT: Bad number, skipping: r
+Bad number, skipping: add
+
+==========================================================================================
+
+TEST (11): test_printWarningMessage_verify (SampleOutputInfoPrintingTests.java:260)
+
+ASSERTION WARNING (SampleOutputInfoPrintingTests.java:260): Warning message printed with verify.info
+
+==========================================================================================
+
+TEST (12): test_printFailMessage_assertionFailure_string (SampleOutputInfoPrintingTests.java:320)
+
+ASSERTION FAILURE (SampleOutputInfoPrintingTests.java:320): Expected string [foo] to be equal to string [food] but is not
+
+==========================================================================================
+
+TEST (13): test_printInfoIfNotAlreadyPrinted_minimalContent (SampleOutputInfoPrintingTests.java:44)
+
+==========================================================================================
+
+TEST (14): test_printFailMessage_assertionFailure_int (SampleOutputInfoPrintingTests.java:294)
+
+ASSERTION FAILURE (SampleOutputInfoPrintingTests.java:294): Expected actual number 43 to be equalTo expected number 42 but was not
+
+==========================================================================================
+
+TEST (15): test_printInfoIfNotAlreadyPrinted_getOutput_interactive_sumNumbers_in_main_clean (SampleOutputInfoPrintingTests.java:111)
+
+DESCRIPTION: TestClassWithInteractiveMethods::main - clean
+
+INPUT: 1
+2
+3
+=
+
+OUTPUT: Enter numbers one per line or = to return sum
+1
+2
+3
+Sum of numbers: 6
+
+VALUE: VoidR voidR
+
+==========================================================================================
+
+TEST (16): test_printInfoIfNotAlreadyPrinted_getOutput_interactive_sumNumbers_in_main_dirty (SampleOutputInfoPrintingTests.java:120)
+
+DESCRIPTION: TestClassWithInteractiveMethods::main - dirty input
+
+INPUT: 1
+2
+r
+3
+
+add
+=
+
+OUTPUT: Enter numbers one per line or = to return sum
+1
+2
+3
+Sum of numbers: 6
+
+VALUE: VoidR voidR
+
+ERROR_OUTPUT: Bad number, skipping: r
+Bad number, skipping: add
+
+==========================================================================================
+
+TEST (17): test_printFailMessage_verify (SampleOutputInfoPrintingTests.java:281)
+
+ASSERTION FAILURE (SampleOutputInfoPrintingTests.java:281): Fail message printed with verify.fail
+
+==========================================================================================
+
+TEST (18): test_printInfoIfNotAlreadyPrinted_getOutput_success (SampleOutputInfoPrintingTests.java:57)
+
+DESCRIPTION: main called with two args
+
+INPUT: [empty]
+
+OUTPUT: 2 args
+arg[0] "hello"
+arg[1] "goodbye"
+
+VALUE: VoidR voidR
+
+==========================================================================================
+
+TEST (19): test_printInfoIfNotAlreadyPrinted_getOutput_interactive_sumNumbers_dirty_exception (SampleOutputInfoPrintingTests.java:169)
+
+DESCRIPTION: TestClassWithInteractiveMethods::sumNumbersFromInput - input triggers exception
+
+INPUT: 1
+2
+r
+3
+
+average
+~
+
+OUTPUT [BEFORE EXCEPTION]: Enter numbers one per line or = to return sum
+1
+2
+3
+
+OUTPUT [EXCEPTION]: java.lang.IllegalArgumentException: average (~,avg) not implemented
+
+VALUE: [not set]
+
+ERROR_OUTPUT: Bad number, skipping: r
+Bad number, skipping: average
+
+(3) java.lang.IllegalArgumentException: average (~,avg) not implemented
+	at testHelp.TestClassWithInteractiveMethods.sumNumbersFromInput(TestClassWithInteractiveMethods.java:72)
+	at testHelp.VFunctionsAndVUnboundMethods.lambda$2(VFunctionsAndVUnboundMethods.java:223)
+	at testHelp.ConsoleTester.getOutputFromVFunction(ConsoleTester.java:561)
+	at testHelp.SampleOutputInfoPrintingTests.test_printInfoIfNotAlreadyPrinted_getOutput_interactive_sumNumbers_dirty_exception(SampleOutputInfoPrintingTests.java:169)
+	...
+
+==========================================================================================
+
+TEST (20): test_printInfoMessage_AssertionTools (SampleOutputInfoPrintingTests.java:242)
+
+ASSERTION INFO (SampleOutputInfoPrintingTests.java:242): Info message printed with AssertionTools.info
+
+==========================================================================================
+
+TEST (21): test_printWarningMessage_AssertionTools (SampleOutputInfoPrintingTests.java:254)
+
+ASSERTION WARNING (SampleOutputInfoPrintingTests.java:254): Warning message printed with AssertionTools.warn
+
+==========================================================================================
+
+TEST (22): test_printInfoIfNotAlreadyPrinted_getOutput_interactive_sumNumbers_in_main_dirty_exception (SampleOutputInfoPrintingTests.java:129)
+
+DESCRIPTION: TestClassWithInteractiveMethods::main - input triggers exception
+
+INPUT: 1
+2
+r
+3
+
+average
+~
+
+OUTPUT: Enter numbers one per line or = to return sum
+1
+2
+3
+
+VALUE: VoidR voidR
+
+ERROR_OUTPUT: Bad number, skipping: r
+Bad number, skipping: average
+Sum of numbers threw exception: java.lang.IllegalArgumentException: average (~,avg) not implemented
+
+(4) java.lang.IllegalArgumentException: average (~,avg) not implemented
+	at testHelp.TestClassWithInteractiveMethods.sumNumbersFromInput(TestClassWithInteractiveMethods.java:72)
+	at testHelp.TestClassWithInteractiveMethods.main(TestClassWithInteractiveMethods.java:39)
+	at testHelp.VFunctionsAndVUnboundMethods.lambda$3(VFunctionsAndVUnboundMethods.java:248)
+	at testHelp.ConsoleTester.getOutputFromVFunction(ConsoleTester.java:561)
+	at testHelp.ConsoleTester.getOutput(ConsoleTester.java:221)
+	at testHelp.SampleOutputInfoPrintingTests.test_printInfoIfNotAlreadyPrinted_getOutput_interactive_sumNumbers_in_main_dirty_exception(SampleOutputInfoPrintingTests.java:129)
+	...
+
+==========================================================================================
+
+TEST (23): test_printInfoIfNotAlreadyPrinted_getOutput_interactive_sumNumbers_clean_exception (SampleOutputInfoPrintingTests.java:159)
+
+DESCRIPTION: TestClassWithInteractiveMethods::sumNumbersFromInput - input triggers exception
+
+INPUT: 1
+2
+3
+~
+
+OUTPUT [BEFORE EXCEPTION]: Enter numbers one per line or = to return sum
+1
+2
+3
+
+OUTPUT [EXCEPTION]: java.lang.IllegalArgumentException: average (~,avg) not implemented
+
+VALUE: [not set]
+
+ERROR_OUTPUT: (1) java.lang.IllegalArgumentException: average (~,avg) not implemented
+	at testHelp.TestClassWithInteractiveMethods.sumNumbersFromInput(TestClassWithInteractiveMethods.java:72)
+	at testHelp.VFunctionsAndVUnboundMethods.lambda$2(VFunctionsAndVUnboundMethods.java:223)
+	at testHelp.ConsoleTester.getOutputFromVFunction(ConsoleTester.java:561)
+	at testHelp.SampleOutputInfoPrintingTests.test_printInfoIfNotAlreadyPrinted_getOutput_interactive_sumNumbers_clean_exception(SampleOutputInfoPrintingTests.java:159)
+	...
+
+==========================================================================================
+
+TEST (24): test_printInfoIfNotAlreadyPrinted_getOutput_returnObject_String (SampleOutputInfoPrintingTests.java:95)
+
+DESCRIPTION: TestClassWithNormalizedMethods::returnArgument with String arg
+
+INPUT: [empty]
+
+OUTPUT: [empty]
+
+VALUE: String String object
+
+==========================================================================================
+
+TEST (26): test_printInfoIfNotAlreadyPrinted__minimalContenDescrption (SampleOutputInfoPrintingTests.java:50)
+
+DESCRIPTION: Description set by ConsoleTester.setDescription
+
+==========================================================================================
+
+TEST (27): test_printInfoIfNotAlreadyPrinted_getOutput_exception (SampleOutputInfoPrintingTests.java:65)
+
+DESCRIPTION: main called with three args - throws exception
+
+INPUT: [empty]
+
+OUTPUT [BEFORE EXCEPTION]: 3 args
+
+OUTPUT [EXCEPTION]: java.lang.IllegalArgumentException: Too many args
+
+VALUE: [not set]
+
+ERROR_OUTPUT: (1) java.lang.IllegalArgumentException: Too many args
+	at testHelp.TestClassWithNormalizedMethods.main(TestClassWithNormalizedMethods.java:18)
+	at testHelp.VFunctionsAndVUnboundMethods.lambda$3(VFunctionsAndVUnboundMethods.java:248)
+	at testHelp.ConsoleTester.getOutputFromVFunction(ConsoleTester.java:561)
+	at testHelp.ConsoleTester.getOutput(ConsoleTester.java:221)
+	at testHelp.SampleOutputInfoPrintingTests.test_printInfoIfNotAlreadyPrinted_getOutput_exception(SampleOutputInfoPrintingTests.java:65)
+	...
+
+==========================================================================================
+
+TEST (28): test_printInfoIfNotAlreadyPrinted_getOutput_exception_caught (SampleOutputInfoPrintingTests.java:85)
+
+DESCRIPTION: main called with three args - throws exception - caught by wrapper
+
+INPUT: [empty]
+
+OUTPUT: 3 args
+Caught exception in wrapper
+
+VALUE: VoidR voidR
+
+ERROR_OUTPUT: (1) java.lang.IllegalArgumentException: Too many args
+	at testHelp.TestClassWithNormalizedMethods.main(TestClassWithNormalizedMethods.java:18)
+	at testHelp.SampleOutputInfoPrintingTests.lambda$2(SampleOutputInfoPrintingTests.java:77)
+	at testHelp.VFunctionsAndVUnboundMethods.lambda$3(VFunctionsAndVUnboundMethods.java:248)
+	at testHelp.ConsoleTester.getOutputFromVFunction(ConsoleTester.java:561)
+	at testHelp.ConsoleTester.getOutput(ConsoleTester.java:221)
+	at testHelp.SampleOutputInfoPrintingTests.test_printInfoIfNotAlreadyPrinted_getOutput_exception_caught(SampleOutputInfoPrintingTests.java:85)
+	...
+
+==========================================================================================
+
+TEST (29): test_printFailMessage_AssertionTools (SampleOutputInfoPrintingTests.java:268)
+
+ASSERTION FAILURE (SampleOutputInfoPrintingTests.java:268): Fail message printed with AssertionTools.fail
+

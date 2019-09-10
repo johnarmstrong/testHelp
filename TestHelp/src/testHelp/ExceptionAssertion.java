@@ -1,6 +1,6 @@
 package testHelp;
 
-import static org.junit.Assert.*;
+import static testHelp.AssertionTools.*;
 
 /**
  * Represents an assertion about an Exception
@@ -10,23 +10,29 @@ import static org.junit.Assert.*;
  */
 public class ExceptionAssertion extends ObjectAssertion
 {
-	private Exception subject;
+	//private Exception subject;
+	private Throwable subject;
 	
-	ExceptionAssertion(Exception subject)
+	//ExceptionAssertion(Exception subject)
+	ExceptionAssertion(Throwable subject)
 	{
-		super(subject);
+		super(subject); // if ObjectAssertion is generic this shadowing shouldn't be necessary
 		this.subject = subject;
 	}
 	
 	/**
 	 * Verifies that an exception is of a specified type, e.g.&nbsp;
 	 * IllegalArgumentException
+	 * <p>
+	 * Could be renamed to isOfType (override of superclass method)
 	 * 
-	 * @param type
-	 * @return
+	 * @param type type to test that exception object is instance of
+	 * @return this if exception object is of expected type
+	 * @throws java.lang.AssertionError if exception object is not of expected type
 	 */
 	public ExceptionAssertion ofType(Class<?> type)
 	{
+	    	//super.isOfType(type);
 		if (!subject.getClass().equals(type))
 			fail("Expected " + type.getSimpleName() + " but got " + subject.getClass().getSimpleName());
 		
@@ -34,12 +40,12 @@ public class ExceptionAssertion extends ObjectAssertion
 	}
 	
 	/**
-	 * Verifies that an expection has the specified message
+	 * Verifies that an exception has the specified message
 	 * 
 	 * @param expected the expected message
 	 * @param compareType how to do the comparison (substring, case-insensitive, etc.)
-	 * 
-	 * @return
+	 * @return this if exception message matches expected
+	 * @throws java.lang.AssertionError if exception message does not match expected
 	 */
 	public ExceptionAssertion withMessage(String expected, CompareType compareType)
 	{

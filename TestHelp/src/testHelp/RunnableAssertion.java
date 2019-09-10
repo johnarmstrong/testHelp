@@ -1,5 +1,7 @@
 package testHelp;
 
+import static testHelp.AssertionTools.*;
+
 /**
  * Represents an assertion about a runnable snippet of code, with no 
  * return value.
@@ -9,20 +11,18 @@ package testHelp;
  */
 public class RunnableAssertion extends ExecutableAssertion
 {
+	private static String DFT_DESC = "runnable code snippet";
 	private Runnable subject;
 	private boolean ran;
 	
-	RunnableAssertion(Runnable subject)
+	RunnableAssertion(Runnable subject, String ... subjectDescArg)
 	{
+		super(getDesc(subjectDescArg,DFT_DESC));
 		this.subject = subject;
 		this.ran = false;
 	}
 	
-	String getExpression()
-	{
-		return "code snippet"; // Runnable.toString doesn't do what we want, and I don't see another way.
-	}
-	
+	@Override
 	void execute()
 	{
 		if (ran)
@@ -41,4 +41,6 @@ public class RunnableAssertion extends ExecutableAssertion
 			ran = true;
 		}
 	}
+	
+	// inherits throwsException and doesNotThrow from ExecutableException
 }

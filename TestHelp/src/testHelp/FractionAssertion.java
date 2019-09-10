@@ -1,6 +1,6 @@
 package testHelp;
 
-import static org.junit.Assert.*;
+import static testHelp.AssertionTools.*;
 
 /** 
  * Represents an assertion related to a Fraction. It should
@@ -13,11 +13,19 @@ import static org.junit.Assert.*;
  */
 public class FractionAssertion extends StringAssertion
 {
+	static final String DFT_DESC = "fraction string";
+	static final String DFT_OTHER_DESC = "mixed fraction string";
 	private Fraction fraction;
 	
-	FractionAssertion(String subject)
+	/**
+	 * construct a FractionAssertion object - will succeed only if the passed subject string
+	 * can be converted to a Fraction object
+	 * @param subject string representing a fraction in FractionalCalculator format
+	 * @param subjectDescArg an option description of the string/fraction
+	 */
+	FractionAssertion(String subject, String ... subjectDescArg)
 	{
-		super(subject);
+		super(subject,getDescAsDescArg(subjectDescArg, DFT_DESC));
 		fraction = new Fraction(subject); 
 	}
 	
@@ -27,14 +35,16 @@ public class FractionAssertion extends StringAssertion
 	 * 
 	 * @param other a fraction in string form, must be numerator/denominator or
 	 * whole_numerator/denominator
-	 * 
-	 * @return
+	 * @param otherDescArg optional description of other fraction represented by string
+	 * @return this if subject fraction is equivalent to other fraction
+	 * @throws java.lang.AssertionError if is equivalent to other fraction
 	 */
-	public FractionAssertion isEquivalentTo(String other)
+	public FractionAssertion isEquivalentTo(String other, String ... otherDescArg)
 	{
 		Fraction otherFraction = new Fraction(other);
+		String otherDesc = getDesc(otherDescArg,DFT_OTHER_DESC);
 		if (!otherFraction.equals(fraction))
-			fail("Expected " + subject + " to be equivalent to " + otherFraction.toMixed());
+			failF("Expected %s %s to be equivalent to %s %s but it is not",subjectDesc,subject,otherDesc,otherFraction.toMixed());
 
 		return this;
 	}
@@ -44,18 +54,22 @@ public class FractionAssertion extends StringAssertion
 	 * integer numerator and denominators
 	 * @param n numerator
 	 * @param d denominator
-	 * @return
+	 * @param otherDescArg option description of other fraction representable as d / n
+	 * @return this if subject fraction is equivalent to other fraction
+	 * @throws java.lang.AssertionError if is equivalent to other fraction
+
 	 */
-	public FractionAssertion isEquivalentTo(int n, int d)
+	public FractionAssertion isEquivalentTo(int n, int d, String ... otherDescArg)
 	{
 		Fraction other = new Fraction(n, d);
+		String otherDesc = getDesc(otherDescArg,DFT_OTHER_DESC);
 		if (!fraction.equals(other))
-			fail("Expected " + subject + " to be equivalent to " + other.toMixed());
+			failF("Expected %s %s to be equivalent to %s %s but it is not",subjectDesc,subject,otherDesc,other.toMixed());
 			
 		return this;
 	}
 	
-	private class Fraction
+	/*private*/ static class Fraction
 	{
 		private int numerator;
 		private int denominator;

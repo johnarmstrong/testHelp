@@ -1,6 +1,7 @@
 package testHelp;
 
-import static org.junit.Assert.*;
+import static testHelp.AssertionTools.*;
+
 import java.util.Collection;
 
 /**
@@ -14,22 +15,25 @@ public class CollectionAssertion<T> extends ObjectAssertion
 {
 	private Collection<T> collection;
 	
-	CollectionAssertion(Collection<T> subject)
+	CollectionAssertion(Collection<T> subject, String ... subjectDescArg)
 	{
-		super(subject);
+		super(subject,getDescAsDescArg(subjectDescArg,"collection"));
 		this.collection = subject;
 	}
 	
 	/**
 	 * Verifies that this collection contains the same objects as the specified one,
 	 * regardless of order, using the Object.equals method to check for equivalence
-	 * of elements.
+	 * of elements.  The types of the objects in the collections will be the same {@literal (type T)},
+	 * and both collections will be implementations of interface {@literal Collection<T>}, but they may be
+	 * different types, for example {@literal ArrayList<T>} and {@literal hashSet<T>}.    
 	 * <p>
 	 * Note that currently the implementation does not handle the case where the collection
 	 * contains different numbers of the same object.
 	 *  
-	 * @param other
-	 * @return
+	 * @param other another collection that the subject collection is expected to be equivalent to
+	 * @return this if the subject collection is equivalent to the other collection
+	 * @throws java.lang.AssertionError if the subject collection not equivalent to the other collection
 	 */
 	public CollectionAssertion<T> isEquivalentTo(Collection<T> other)
 	{
@@ -51,10 +55,14 @@ public class CollectionAssertion<T> extends ObjectAssertion
 	}
 	
 	/**
-	 * Verifies that the collection contains a particular item.
+	 * Verifies that the collection contains a particular item.  The comparison of the item with items in the collection
+	 * is done with the equals method defined for the generic type.  As long as an override to Object.equals
+	 * has been defined for the type  does not require identity an item need not be the same object as any of the objects
+	 * in the collection to be considered as being in the collection.
 	 * 
-	 * @param item
-	 * @return
+	 * @param item the item to be compared to the items in the collection
+	 * @return this if the item is contained in the collection
+	 * @throws java.lang.AssertionError if the item is not contained in the collection
 	 */
 	public CollectionAssertion<T> contains(T item)
 	{
@@ -67,9 +75,14 @@ public class CollectionAssertion<T> extends ObjectAssertion
 	}
 	
 	/**
-	 * Verifies that the collection does not contain a particular item
-	 * @param item
-	 * @return
+	 * Verifies that the collection does contains a particular item.  The comparison of the item with items in the collection
+	 * is done with the equals method defined for the generic type.  As long as an override to Object.equals
+	 * has been defined for the type  does not require identity an item need not be the same object as any of the objects
+	 * in the collection to be considered as being in the collection.
+	 * 
+	 * @param item the item to be compared to the items in the collection.  
+	 * @return this if the item is not contained in the collection
+	 * @throws java.lang.AssertionError if the item is contained in the collection
 	 */
 	public CollectionAssertion<T> doesNotContain(T item)
 	{
@@ -81,12 +94,15 @@ public class CollectionAssertion<T> extends ObjectAssertion
 	}
 
 	/**
-	 * Verifies that the collection matches another collection exactly (same
-	 * contents, same order). Note that for some types of collections (e.g.
-	 * sets), order is irrelevant so this verification is meaningless.
+	 * Verifies that the collection matches another collection exactly (same contents, same order). Individual items in the subject and
+	 * other collections are compared using the equals method defined for the generic type of subject collection, and as long as the an
+	 * override has been defined that does not require identity the objects in the two collections do not have to be the same objects.
+	 * <p>
+	 * Note that for some types of collections (e.g. sets), order is irrelevant so this verification is meaningless.
 	 * 
-	 * @param collection
-	 * @return
+	 * @param collection another collection to be compared to the subject collection
+	 * @return this if the collections are considered equal
+	 * @throws java.lang.AssertionError if the collections are not considered equal
 	 */
 	public CollectionAssertion<T> isEqualTo(Collection<?> collection)
 	{
@@ -115,13 +131,15 @@ public class CollectionAssertion<T> extends ObjectAssertion
 	}
 
 	/**
-	 * Verifies that the collection is not identical to another collection 
-	 * (has different contents or a different ordering of elements). Note 
-	 * that for some types of collections (e.g. sets), order is irrelevant 
-	 * so this verification is meaningless.
+	 * Verifies that the collection does not match another collection exactly (same contents, same order). Individual items in the subject and
+	 * other collections are compared using the equals method defined for the generic type of subject collection, and as long as the an
+	 * override has been defined that does not require identity the objects in the two collections do not have to be the same objects.
+	 * <p>
+	 * Note that for some types of collections (e.g. sets), order is irrelevant so this verification is meaningless.
 	 * 
-	 * @param collection
-	 * @return
+	 * @param collection another collection to be compared to the subject collection
+	 * @return this if the collections are not considered equal
+	 * @throws java.lang.AssertionError if the collections are considered equal
 	 */
 	public CollectionAssertion<T> isNotEqualTo(Collection<?> collection)
 	{

@@ -1,6 +1,6 @@
 package testHelp;
 
-import static org.junit.Assert.*;
+import static testHelp.AssertionTools.*;
 
 /**
  * Represents an assertion about an object
@@ -8,25 +8,30 @@ import static org.junit.Assert.*;
  * @author ejewart
  *
  */
+
 public class ObjectAssertion 
 {
 	private Object subject;
+	String subjectDesc;
 	
 	/** Constructs a new ObjectAssertion. This is exposed so that
 	 * consumers of the testHelp library can add their own assertion 
 	 * classes that are subclasses of ObjectAssertion.
 	 * 
 	 * @param subject the object assertions are focused on
+	 * @param subjectDescArg (optional) description of the subject
 	 */
-	public ObjectAssertion(Object subject)
+	public ObjectAssertion(Object subject, String ... subjectDescArg)
 	{
 		this.subject = subject;
+		this.subjectDesc = getDesc(subjectDescArg, "object");
 	}
 	
 	/**
 	 * Verifies that an object is null
 	 * 
-	 * @return
+	 * @return this if subject is null
+	 * @throws java.lang.AssertionError if subject is not null 
 	 */
 	public ObjectAssertion isNull()
 	{
@@ -39,7 +44,8 @@ public class ObjectAssertion
 	/**
 	 * Verifies that an object is not null
 	 * 
-	 * @return
+	 * @return this if subject is not null
+	 * @throws java.lang.AssertionError if subject is null
 	 */
 	public ObjectAssertion isNotNull()
 	{
@@ -52,8 +58,9 @@ public class ObjectAssertion
 	/**
 	 * Verifies that an object is of a particular type
 	 * 
-	 * @param type
-	 * @return
+	 * @param type to test that object is instance of
+	 * @return this  if subject is an instance of type
+	 * @throws java.lang.AssertionError if subject is not an instance of type
 	 */
 	public ObjectAssertion isOfType(Class<?> type)
 	{
@@ -69,8 +76,9 @@ public class ObjectAssertion
 	/**
 	 * Verifies that an object is equal to another object, using Object.equals
 	 * 
-	 * @param other
-	 * @return
+	 * @param other other object to compare subject to
+	 * @return this if subject is equal to other object
+	 * @throws java.lang.AssertionError if subject is not equal to other object
 	 */
 	public ObjectAssertion isEqualTo(Object other)
 	{
@@ -91,8 +99,9 @@ public class ObjectAssertion
 	/**
 	 * Verifies that this object is not equal to the specified other one.
 	 * 
-	 * @param other
-	 * @return
+	 * @param other other object to compare subject to
+	 * @return this if subject is not equal to other object
+	 * @throws java.lang.AssertionError if subject is equal to other object
 	 */
 	public ObjectAssertion isNotEqualTo(Object other)
 	{
